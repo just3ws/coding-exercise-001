@@ -7,4 +7,5 @@
   :main ^{:skip-aot true} delimited-file-reader.core
   :profiles {:dev {:plugins [[com.jakemccrary/lein-test-refresh "0.18.1"]
                              [venantius/ultra "0.5.1"]
-                             [cider/cider-nrepl "0.14.0"]]}})
+                             [cider/cider-nrepl "0.14.0"]
+                             [clj-time "0.13.0"]]}})
