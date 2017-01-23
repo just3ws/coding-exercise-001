@@ -1,4 +1,4 @@
-(ns delimited-file-reader.core)
+(ns delimited-file-reader.core (:gen-class))
 
 (defn -main
   "Command-line entry point."
