@@ -1,6 +1,7 @@
 # delimited-file-reader
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library designed to parse delimited files that may be using space,
+comma, or pipe delimited format.
 
 ## Usage
 
@@ -8,7 +9,6 @@ FIXME
 
 ## License
 
-Copyright © 2017 FIXME
+Copyright © 2017 Mike Hall
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the GNU General Public License version 3.

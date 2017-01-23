@@ -1,6 +1,6 @@
 (defproject delimited-file-reader "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
-  :license {:name "Eclipse Public License"
-            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :description "Consume files that can either be pipe, comma, or space delimited."
+  :url "http://github.com/just3ws/coding-exercise-001"
+  :license {:name "GNU General Public License version 3"
+            :url "https://www.gnu.org/licenses/gpl-3.0.txt"}
   :dependencies [[org.clojure/clojure "1.8.0"]])
