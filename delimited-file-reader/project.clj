@@ -5,5 +5,7 @@
             :url "https://www.gnu.org/licenses/gpl-3.0.txt"}
   :dependencies [[org.clojure/clojure "1.8.0"]]
   :main delimited-file-reader.core
+  :aot [delimited-file-reader.core]
   :profiles {:dev {:plugins [[com.jakemccrary/lein-test-refresh "0.18.1"]
-                             [venantius/ultra "0.5.1"]]}})
+                             [venantius/ultra "0.5.1"]
+                             [cider/cider-nrepl "0.14.0"]]}})
