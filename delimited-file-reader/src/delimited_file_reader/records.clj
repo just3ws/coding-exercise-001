@@ -1,7 +1,7 @@
 (ns delimited-file-reader.records)
 
-(defrecord Person [^String last_name
-                   ^String first_name
+(defrecord Person [last_name
+                   first_name
                    gender
                    date_of_birth
-                   ^String favorite_color])
+                   favorite_color])
