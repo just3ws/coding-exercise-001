@@ -1,6 +1,6 @@
 (ns delimited-file-reader.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn -main
+  "Command-line entry point."
+  [& raw-args]
+  (println raw-args))

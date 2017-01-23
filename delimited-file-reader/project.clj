@@ -3,4 +3,5 @@
   :url "http://github.com/just3ws/coding-exercise-001"
   :license {:name "GNU General Public License version 3"
             :url "https://www.gnu.org/licenses/gpl-3.0.txt"}
-  :dependencies [[org.clojure/clojure "1.8.0"]])
+  :dependencies [[org.clojure/clojure "1.8.0"]]
+  :main delimited-file-reader.core)
