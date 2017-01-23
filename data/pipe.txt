@@ -1,0 +1,11 @@
+LastName | FirstName | Gender | FavoriteColor | DateOfBirth
+Green | Abbey | M | Orchid | 10/10/2021
+Pouros | Precious | M | MintGreen | 5/9/2020
+Leannon | Manuela | F | Salmon | 3/24/2012
+Skiles | Colten | F | MintGreen | 12/28/2015
+Blick | Virgil | M | Yellow | 9/15/2013
+Hane | Antoinette | F | Turquoise | 8/6/2017
+Osinski | Verlie | F | Purple | 8/18/2014
+Sawayn | Lauretta | F | Pink | 1/14/2017
+Labadie | Malachi | M | Red | 3/18/2012
+Lesch | Emerald | M | Tan | 8/19/2021
