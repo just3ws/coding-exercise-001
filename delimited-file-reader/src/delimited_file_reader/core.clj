@@ -1,6 +1,4 @@
-(ns delimited-file-reader.core (:gen-class))
+(ns delimited-file-reader.core
+  (:require [delimited-file-reader.records])
+  (:import [delimited_file_reader.records Person]))
 
-(defn -main
-  "Command-line entry point."
-  [& raw-args]
-  (println raw-args))
