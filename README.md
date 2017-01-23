@@ -1,2 +1,5 @@
-# coding-exercise-001
-Coding exercise 001: Consume delimited data and expose RESTful API using Clojure
+# Coding Exercise: 001
+
+- Using Clojure:
+  - Consume delimited data
+  - Expose that data via RESTful API
