@@ -3,53 +3,43 @@
             [delimited-file-reader.records :refer :all])
   (:import [delimited_file_reader.records Person]))
 
-(def valid-last_name "Hall")
-(def valid-first_name "Mike")
-(def valid-gender"M")
-(def valid-date_of_birth "12/19/1975")
-(def valid-favorite_color "blue")
+;; Directly initialize Person defrecord
+(testing "Directly generate a Person record"
 
-;; Construct a raw defrecord
-(def valid-person (Person. valid-last_name
-                           valid-first_name
-                           valid-gender
-                           valid-date_of_birth
-                           valid-favorite_color))
-(deftest valid-person-test
-  (testing "New Person record can be directly constructed"
-    (is (= (get valid-person :last_name) valid-last_name))
-    (is (= (get valid-person :first_name) valid-first_name))
-    (is (= (get valid-person :gender) valid-gender))
-    (is (= (get valid-person :date_of_birth) valid-date_of_birth))
-    (is (= (get valid-person :favorite_color) valid-favorite_color))))
+  (def favorite_color "green")
+  (def date_of_birth "7/6/1975")
+  (def gender "F")
+  (def first_name "Aneta")
+  (def last_name "Hall")
 
-;; Construct Person with valid ordinal arguments
-(def make-valid-person-with-ordinal-arguments
-  (make-person valid-last_name
-               valid-first_name
-               valid-gender
-               valid-date_of_birth
-               valid-favorite_color))
-(deftest construct-person-with-ordinal-arguments-test
-  (testing "A Person can be constructed with valid ordinal arguments"
-    (is (= (get make-valid-person-with-ordinal-arguments :last_name) valid-last_name))
-    (is (= (get make-valid-person-with-ordinal-arguments :first_name) valid-first_name))
-    (is (= (get make-valid-person-with-ordinal-arguments :gender) valid-gender))
-    (is (= (get make-valid-person-with-ordinal-arguments :date_of_birth) valid-date_of_birth))
-    (is (= (get make-valid-person-with-ordinal-arguments :favorite_color) valid-favorite_color))))
+  (def valid_person (Person. last_name first_name gender date_of_birth favorite_color))
 
-;; Construct Person with valid keyword arguments
-(def make-valid-person-with-keyword-arguments
-  (make-person {
-                :favorite_color valid-favorite_color
-                :date_of_birth valid-date_of_birth
-                :gender valid-gender
-                :first_name valid-first_name
-                :last_name valid-last_name }))
-(deftest construct-person-with-keyword-arguments-test
-  (testing "A Person can be constructed with valid keyword arguments"
-    (is (= (get make-valid-person-with-keyword-arguments :last_name) valid-last_name))
-    (is (= (get make-valid-person-with-keyword-arguments :first_name) valid-first_name))
-    (is (= (get make-valid-person-with-keyword-arguments :gender) valid-gender))
-    (is (= (get make-valid-person-with-keyword-arguments :date_of_birth) valid-date_of_birth))
-    (is (= (get make-valid-person-with-keyword-arguments :favorite_color) valid-favorite_color))))
+  (testing "with valid attributes"
+    (is (= (get valid_person :last_name) last_name))
+    (is (= (get valid_person :first_name) first_name))
+    (is (= (get valid_person :gender) gender))
+    (is (= (get valid_person :date_of_birth) date_of_birth))
+    (is (= (get valid_person :favorite_color) favorite_color))))
+
+;; Initialize Person record using constructor function
+(testing "Construct a Person record"
+  (def favorite_color "blue")
+  (def date_of_birth "12/19/1975")
+  (def gender "M")
+  (def first_name "Mike")
+  (def last_name "Hall")
+
+  (def valid_person (make-person {
+                                  :favorite_color favorite_color
+                                  :date_of_birth date_of_birth
+                                  :gender gender
+                                  :first_name first_name
+                                  :last_name last_name }))
+
+  (testing "with valid attributes"
+    (is (= (get valid_person :last_name) last_name))
+    (is (= (get valid_person :first_name) first_name))
+    (is (= (get valid_person :gender) gender))
+    (is (= (get valid_person :date_of_birth) date_of_birth))
+    (is (= (get valid_person :favorite_color) favorite_color))))
+
