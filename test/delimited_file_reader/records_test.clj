@@ -43,3 +43,10 @@
     (is (= (get valid_person :date_of_birth) date_of_birth))
     (is (= (get valid_person :favorite_color) favorite_color))))
 
+
+;; Initialize Person record that is fully transformed
+(testing "Construct a XPerson record"
+  (def valid_xperson (make-xperson { :last_name "Smith" }))
+
+  (testing "with valid attributes"
+    (is (=  "htimS" (get valid_xperson :last_name) ))))
