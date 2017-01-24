@@ -1,0 +1,10 @@
+---
+engines:
+  kibit:
+    enabled: true
+ratings:
+  paths:
+    - "delimited-file-reader/**.clj"
+exclude_paths:
+  - data/**/*
+
