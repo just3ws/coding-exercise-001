@@ -1,0 +1,5 @@
+language: clojure
+lein: 2.7.1
+script: "lein do clean, test, clean, compile :all"
+jdk: [oraclejdk8]
+

@@ -1,0 +1,10 @@
+---
+engines:
+  kibit:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths:
+    - "**.clj"
+exclude_paths: []
