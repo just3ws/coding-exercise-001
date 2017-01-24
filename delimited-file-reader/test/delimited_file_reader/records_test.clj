@@ -23,7 +23,7 @@
     (is (= (get valid-person :date_of_birth) valid-date_of_birth))
     (is (= (get valid-person :favorite_color) valid-favorite_color))))
 
-;; Construct with ordinal arguments
+;; Construct Person with valid ordinal arguments
 (def make-valid-person-with-ordinal-arguments
   (make-person valid-last_name
                valid-first_name
@@ -38,7 +38,7 @@
     (is (= (get make-valid-person-with-ordinal-arguments :date_of_birth) valid-date_of_birth))
     (is (= (get make-valid-person-with-ordinal-arguments :favorite_color) valid-favorite_color))))
 
-;; Construct with keyword arguments
+;; Construct Person with valid keyword arguments
 (def make-valid-person-with-keyword-arguments
   (make-person {
                 :favorite_color valid-favorite_color
