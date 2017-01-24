@@ -8,7 +8,6 @@
                    date_of_birth
                    favorite_color])
 
-;; TODO: Look at how to avoid looping back into the method when using keywords
 (defn make-person
   "Make a new Person record"
   ([last_name first_name gender date_of_birth favorite_color]
