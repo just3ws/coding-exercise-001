@@ -25,9 +25,4 @@
                    :default (complement :slow)
                    :focus :focus
                    :slow :slow
-                   :all (constantly true) }
-  :test-refresh {
-                 :notify-command ["terminal-notifier"
-                                  "-title"
-                                  "Tests"
-                                  "-message"] })
+                   :all (constantly true) })

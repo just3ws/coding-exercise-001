@@ -2,7 +2,6 @@
   (:require [clojure.java.io :as io]
             [clojure.data.csv :as csv]
             [semantic-csv.core :as sc]
-            [fipp.edn :refer (pprint) :rename {pprint fipp}]
             [delimited-file-reader.reader :as r]
             [camel-snake-kebab.core :refer :all]
             [clojure.string :as s]
