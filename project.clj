@@ -6,7 +6,8 @@
             :url "https://www.gnu.org/licenses/gpl-3.0.txt" }
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [clj-time "0.13.0"]
-                 [org.clojure/data.csv "0.1.3"]]
+                 [org.clojure/data.csv "0.1.3"]
+                 [semantic-csv "0.1.0"]]
   :main ^{ :skip-aot true } delimited-file-reader.runner
   :aot [delimited-file-reader.runner]
   ;: main delimited-file-reader.core
