@@ -1,6 +1,6 @@
-(ns delimited-file-reader.core-test
+(ns plik.core-test
   (:require [clojure.test :refer :all]
-            [delimited-file-reader.core :refer :all]))
+            [plik.core :refer :all]))
 
 (deftest a-test
   (testing "Math still works."

@@ -1,4 +1,4 @@
-(ns delimited-file-reader.runner
+(ns plik.runner
   (:gen-class))
 
 (defn -main

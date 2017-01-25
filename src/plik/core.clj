@@ -1,3 +1,3 @@
-(ns delimited-file-reader.core
-  (:require [delimited-file-reader.records])
-  (:import [delimited_file_reader.records Person]))
+(ns plik.core
+  (:require [plik.records])
+  (:import [plik.records Person]))

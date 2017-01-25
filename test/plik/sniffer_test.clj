@@ -1,7 +1,7 @@
-(ns ^:focus delimited-file-reader.sniffer-test
+(ns ^:focus plik.sniffer-test
   (:require [clojure.test :refer :all]
-            [delimited-file-reader.reader :as r]
-            [delimited-file-reader.sniffer :refer :all]))
+            [plik.reader :as r]
+            [plik.sniffer :refer :all]))
 
 (def pipe-file (r/open-file "test/pipe.txt"))
 (def comma-file (r/open-file "test/comma.txt"))

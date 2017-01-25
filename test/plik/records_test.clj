@@ -1,8 +1,8 @@
-(ns delimited-file-reader.records-test
+(ns plik.records-test
   (:require [clojure.test :refer :all]
-            [delimited-file-reader.records :refer :all]
-            [delimited-file-reader.date :as d])
-  (:import [delimited_file_reader.records Person]))
+            [plik.records :refer :all]
+            [plik.date :as d])
+  (:import [plik.records Person]))
 
 ;; Directly initialize Person defrecord
 (testing "Directly generate a Person record"

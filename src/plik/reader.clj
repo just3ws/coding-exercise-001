@@ -1,11 +1,11 @@
-(ns delimited-file-reader.reader
+(ns plik.reader
   (:require [clojure.string :as s]
             [clojure.java.io :as io]
             [clojure.data.csv :as csv]
             [semantic-csv.core :as sc]
             [camel-snake-kebab.core :refer :all]
-            [delimited-file-reader.date :as d]
-            [delimited-file-reader.sniffer :as sniffer]))
+            [plik.date :as d]
+            [plik.sniffer :as sniffer]))
 
 (defn open-file [path] (io/file (io/resource path)))
 

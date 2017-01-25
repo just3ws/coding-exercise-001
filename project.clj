@@ -1,4 +1,4 @@
-(defproject delimited-file-reader "0.1.0-SNAPSHOT"
+(defproject plik "0.1.0-SNAPSHOT"
   :description "Consume files that can either be pipe, comma, or space delimited."
   :url "http://github.com/just3ws/coding-exercise-001"
   :license {
@@ -9,10 +9,10 @@
                  [org.clojure/data.csv "0.1.3"]
                  [semantic-csv "0.1.1-just3ws"] ;; Because :transform-header
                  [camel-snake-kebab "0.4.0"]]
-  :main ^{ :skip-aot true } delimited-file-reader.runner
-  :aot [delimited-file-reader.runner]
-  ;: main delimited-file-reader.core
-  ;; :aot [delimited-file-reader.core]
+  :main ^{ :skip-aot true } plik.runner
+  :aot [plik.runner]
+  ;: main plik.core
+  ;; :aot [plik.core]
   :plugins [[cider/cider-nrepl "0.14.0"] ;; Recommended for use with vim-fireplace
             [lein-cloverage "1.0.10-SNAPSHOT"] ;; Test coverage analysis
             [com.jakemccrary/lein-test-refresh "0.18.1"] ;; Run tests on change

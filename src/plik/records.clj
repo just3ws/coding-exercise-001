@@ -1,5 +1,5 @@
-(ns delimited-file-reader.records
-  (:require [delimited-file-reader.date :as d]))
+(ns plik.records
+  (:require [plik.date :as d]))
 
 (defrecord Person [last_name
                    first_name

@@ -4,7 +4,7 @@
   - Consume delimited data
   - Expose that data via RESTful API
 
-## delimited-file-reader
+## plik
 
 [![Code Climate](https://codeclimate.com/github/just3ws/coding-exercise-001/badges/gpa.svg)](https://codeclimate.com/github/just3ws/coding-exercise-001)
 [![Build Status](https://travis-ci.org/just3ws/coding-exercise-001.svg?branch=master)](https://travis-ci.org/just3ws/coding-exercise-001)

@@ -1,4 +1,4 @@
-(ns delimited-file-reader.date
+(ns plik.date
   (:require [clj-time.format :as f]
             [clojure.string :as s]))
 

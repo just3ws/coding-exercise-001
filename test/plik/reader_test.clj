@@ -1,8 +1,8 @@
-(ns delimited-file-reader.reader-test
+(ns plik.reader-test
   (:require [clojure.test :refer :all]
             [clojure.pprint :refer :all]
             [clj-time.core :as t]
-            [delimited-file-reader.reader :as r]))
+            [plik.reader :as r]))
 
 (def pipe-file (r/open-file "test/pipe.txt"))
 (def comma-file (r/open-file "test/comma.txt"))

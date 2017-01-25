@@ -1,4 +1,4 @@
-(ns delimited-file-reader.sniffer
+(ns plik.sniffer
   (:require [clojure.java.io :as io]))
 
 (defn peek-file [file]
