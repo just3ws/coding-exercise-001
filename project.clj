@@ -7,7 +7,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [clj-time "0.13.0"]
                  [org.clojure/data.csv "0.1.3"]
-                 [semantic-csv "0.1.0"]]
+                 [semantic-csv "0.1.0"]
+                 [fipp "0.6.8"]]
   :main ^{ :skip-aot true } delimited-file-reader.runner
   :aot [delimited-file-reader.runner]
   ;: main delimited-file-reader.core
@@ -19,4 +20,13 @@
             [jonase/eastwood "0.2.3"] ;; Clojure linting
             [venantius/ultra "0.5.1"] ;; Improved test output, repl printing
             [lein-pprint "1.1.2"]] ;; Pretty printing
-  :test-refresh { :notify-command ["terminal-notifier" "-title" "Tests" "-message"] })
+  :test-selectors {
+                   :default (complement :slow)
+                   :focus :focus
+                   :slow :slow
+                   :all (constantly true) }
+  :test-refresh {
+                 :notify-command ["terminal-notifier"
+                                  "-title"
+                                  "Tests"
+                                  "-message"] })
