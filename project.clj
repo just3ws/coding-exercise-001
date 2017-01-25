@@ -14,6 +14,7 @@
   ;: main delimited-file-reader.core
   ;; :aot [delimited-file-reader.core]
   :plugins [[cider/cider-nrepl "0.14.0"] ;; Recommended for use with vim-fireplace
+            [lein-cloverage "1.0.10-SNAPSHOT"] ;; Test coverage analysis
             [com.jakemccrary/lein-test-refresh "0.18.1"] ;; Run tests on change
             [lein-kibit "0.1.3"] ;; Clojure static analysis
             [lein-ancient "0.6.10"] ;; Check for out-of-date dependencies
