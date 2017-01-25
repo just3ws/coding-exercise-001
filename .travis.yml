@@ -1,7 +1,10 @@
 language: clojure
 lein: 2.7.1
 sudo: false
-before_script: pwd
-script: "lein do clean, test, clean, compile :all"
+before_install:
+  - "echo starting this up"
+  - pwd
+script:
+  - "lein do clean, test, clean, compile :all"
 jdk: [oraclejdk8]
 
