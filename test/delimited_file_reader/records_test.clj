@@ -1,13 +1,9 @@
 (ns delimited-file-reader.records-test
   (:require [clojure.test :refer :all]
-            [delimited-file-reader.records :refer :all])
+            [delimited-file-reader.records :refer :all]
+            [delimited-file-reader.reader :as r])
   (:import [delimited_file_reader.records Person]))
 
-(deftest date-parsing-test
-  (is (= "12/19/1975" (write-date (read-date "12/19/1975"))))
-  (is (= "7/6/1975" (write-date (read-date "7/6/1975"))))
-  (is (= false (date? "hello")))
-  (is (= true (date? "7/6/1975"))))
 
 ;; Directly initialize Person defrecord
 (testing "Directly generate a Person record"
@@ -54,4 +50,4 @@
   (def valid_xperson (make-xperson { :last_name "Smith" :date_of_birth "7/6/1975" }))
   (testing "with valid attributes"
     (is (instance? org.joda.time.DateTime (get valid_xperson :date_of_birth)))
-    (is (date? (get valid_xperson :date_of_birth)))))
+    (is (r/date? (get valid_xperson :date_of_birth)))))
