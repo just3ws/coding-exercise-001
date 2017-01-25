@@ -21,3 +21,8 @@
   (is (space-delimited? space-file))
   (is (not (space-delimited? pipe-file)))
   (is (not (space-delimited? comma-file))))
+
+(deftest infer-deliminator-test
+  (is (= \space (infer-deliminator space-file)))
+  (is (= \| (infer-deliminator pipe-file)))
+  (is (= \, (infer-deliminator comma-file))))
