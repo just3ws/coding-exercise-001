@@ -2,8 +2,7 @@ language: clojure
 lein: 2.7.1
 sudo: false
 before_install:
-  - "echo starting this up"
-  - pwd
+  - "mvn install:install-file -Dfile=resources/lib/semantic-csv/0.1.1-just3ws/semantic-csv-0.1.1-just3ws.jar"
 script:
   - "lein do clean, test, clean, compile :all"
 jdk: [oraclejdk8]
