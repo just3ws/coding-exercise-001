@@ -4,8 +4,7 @@
             [semantic-csv.core :as sc]
             [delimited-file-reader.reader :as r]
             [camel-snake-kebab.core :refer :all]
-            [clojure.string :as s]
-            [delimited-file-reader.reader :as r]))
+            [clojure.string :as s]))
 
 (defn open-file [path] (io/file (io/resource path)))
 
