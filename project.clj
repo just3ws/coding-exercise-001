@@ -7,7 +7,7 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [clj-time "0.13.0"]
                  [org.clojure/data.csv "0.1.3"]
-                 [semantic-csv "0.1.0"]
+                 [semantic-csv "0.1.1-just3ws"] ;; Because :transform-header
                  [camel-snake-kebab "0.4.0"]
                  [fipp "0.6.8"]]
   :main ^{ :skip-aot true } delimited-file-reader.runner
@@ -19,6 +19,7 @@
             [lein-kibit "0.1.3"] ;; Clojure static analysis
             [lein-ancient "0.6.10"] ;; Check for out-of-date dependencies
             [jonase/eastwood "0.2.3"] ;; Clojure linting
+            [lein-localrepo "0.5.3"]
             [venantius/ultra "0.5.1"] ;; Improved test output, repl printing
             [lein-pprint "1.1.2"]] ;; Pretty printing
   :test-selectors {
