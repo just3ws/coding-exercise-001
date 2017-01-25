@@ -4,6 +4,9 @@ sudo: false
 before_install:
   - "mvn install:install-file -Dfile=resources/lib/semantic-csv/0.1.1-just3ws/semantic-csv-0.1.1-just3ws.jar -DpomFile=resources/lib/semantic-csv/0.1.1-just3ws/semantic-csv-0.1.1-just3ws.pom"
 script:
+  - "lein kibit src test"
+  - "lein eastwood"
   - "lein do clean, test, clean, compile :all"
+after_script:
 jdk: [oraclejdk8]
 
