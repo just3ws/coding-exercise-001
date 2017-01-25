@@ -1,7 +1,7 @@
 (ns delimited-file-reader.records-test
   (:require [clojure.test :refer :all]
             [delimited-file-reader.records :refer :all]
-            [delimited-file-reader.reader :as r])
+            [delimited-file-reader.date :as d])
   (:import [delimited_file_reader.records Person]))
 
 
@@ -43,4 +43,4 @@
     (is (= (get valid_person :gender) gender))
     (is (= (get valid_person :favorite_color) favorite_color))
     (is (instance? org.joda.time.DateTime (get valid_person :date_of_birth)))
-    (is (r/date? (get valid_person :date_of_birth)))))
+    (is (d/date? (get valid_person :date_of_birth)))))

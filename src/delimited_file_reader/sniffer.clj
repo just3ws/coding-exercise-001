@@ -2,7 +2,7 @@
   (:require [clojure.java.io :as io]
             [clojure.data.csv :as csv]
             [semantic-csv.core :as sc]
-            [delimited-file-reader.reader :as r]
+            [delimited-file-reader.date :as d]
             [camel-snake-kebab.core :refer :all]
             [clojure.string :as s]))
 
@@ -38,8 +38,8 @@
        ->snake_case_keyword))
 
 (defn cast-date-of-birth [dob]
-  (if (r/date? dob)
-    (r/read-date dob)
+  (if (d/date? dob)
+    (d/read-date dob)
     nil))
 
 (defn load-data [file]

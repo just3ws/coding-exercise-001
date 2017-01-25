@@ -1,5 +1,5 @@
 (ns delimited-file-reader.records
-  (:require [delimited-file-reader.reader :as r]))
+  (:require [delimited-file-reader.date :as d]))
 
 (defrecord Person [last_name
                    first_name
@@ -8,7 +8,7 @@
                    favorite_color])
 
 (defn transform-fields [fields]
-  (update fields :date_of_birth r/read-date))
+  (update fields :date_of_birth d/read-date))
 
 (defn make-person
   "Make a new Person record"
