@@ -1,10 +1,6 @@
 (ns delimited-file-reader.records
   (:require [delimited-file-reader.reader :as r]))
 
-(defn pipe-delimited? [str] true)
-(defn comma-delimited? [str] true)
-(defn space-delimited? [str] true)
-
 (defrecord Person [last_name
                    first_name
                    gender
