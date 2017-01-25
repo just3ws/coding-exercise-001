@@ -2,7 +2,6 @@
   (:require [clojure.java.io :as io]
             [clojure.pprint :refer :all]))
 
-
 (defn open-file [path] (io/file (io/resource path)))
 
 (defn peek-file [file]
