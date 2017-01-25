@@ -1,6 +1,6 @@
 (ns delimited-file-reader.sniffer
   (:require [clojure.java.io :as io]
-            [clojure.pprint :refer :all]))
+            [clojure.data.csv :as csv]))
 
 (defn open-file [path] (io/file (io/resource path)))
 
@@ -10,11 +10,11 @@
 
 (defn pipe-delimited? [file]
   (let [str (peek-file file)]
-    (not (nil? (re-find #"\s+\|\s+" str)))))
+    (not (nil? (re-find #"\|" str)))))
 
 (defn comma-delimited? [file]
   (let [str (peek-file file)]
-    (not (nil? (re-find #",\s+" str)))))
+    (not (nil? (re-find #"," str)))))
 
 (defn space-delimited? [file]
   (let [str (peek-file file)]
