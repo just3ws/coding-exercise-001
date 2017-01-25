@@ -8,6 +8,7 @@
                  [clj-time "0.13.0"]
                  [org.clojure/data.csv "0.1.3"]
                  [semantic-csv "0.1.0"]
+                 [camel-snake-kebab "0.4.0"]
                  [fipp "0.6.8"]]
   :main ^{ :skip-aot true } delimited-file-reader.runner
   :aot [delimited-file-reader.runner]
