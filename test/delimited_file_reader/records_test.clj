@@ -44,4 +44,5 @@
     (is (= (get valid_person :date_of_birth) date_of_birth))
     (is (= (get valid_person :favorite_color) favorite_color))
     (is (instance? org.joda.time.DateTime (get valid_person :date_of_birth)))
-    (is (r/date? (get valid_person :date_of_birth)))))
+    (is (r/date? (get valid_person :date_of_birth)))
+    ))
