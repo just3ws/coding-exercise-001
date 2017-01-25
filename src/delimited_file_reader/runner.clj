@@ -3,6 +3,6 @@
 
 (defn -main
   "Command-line entry point."
-  [path]
-  (println path))
+  [& args]
+  (println args))
 
