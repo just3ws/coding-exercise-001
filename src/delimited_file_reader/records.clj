@@ -1,6 +1,5 @@
 (ns delimited-file-reader.records
-  (:require [clojure.string :as s]
-            [clj-time.format :as f]))
+  (:require [clj-time.format :as f]))
 
 (def date-format (f/formatter "M/d/yyyy"))
 (defn read-date [str] (f/parse date-format str))
@@ -17,7 +16,6 @@
 (defrecord XPerson [last_name date_of_birth])
 
 (def person-transformations {
-                             :last_name [s/reverse :last_name]
                              :date_of_birth [read-date :date_of_birth]
                              })
 

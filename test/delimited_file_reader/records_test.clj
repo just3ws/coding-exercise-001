@@ -53,6 +53,5 @@
 (testing "Construct a XPerson record"
   (def valid_xperson (make-xperson { :last_name "Smith" :date_of_birth "7/6/1975" }))
   (testing "with valid attributes"
-    (is (= "htimS" (get valid_xperson :last_name) ))
     (is (instance? org.joda.time.DateTime (get valid_xperson :date_of_birth)))
     (is (date? (get valid_xperson :date_of_birth)))))
