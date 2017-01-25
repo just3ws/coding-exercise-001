@@ -42,12 +42,6 @@
     (is (= (get valid_person :first_name) first_name))
     (is (= (get valid_person :gender) gender))
     (is (= (get valid_person :date_of_birth) date_of_birth))
-    (is (= (get valid_person :favorite_color) favorite_color))))
-
-
-;; Initialize Person record that is fully transformed
-(testing "Construct a XPerson record"
-  (def valid_xperson (make-xperson { :last_name "Smith" :date_of_birth "7/6/1975" }))
-  (testing "with valid attributes"
-    (is (instance? org.joda.time.DateTime (get valid_xperson :date_of_birth)))
-    (is (r/date? (get valid_xperson :date_of_birth)))))
+    (is (= (get valid_person :favorite_color) favorite_color))
+    (is (instance? org.joda.time.DateTime (get valid_person :date_of_birth)))
+    (is (r/date? (get valid_person :date_of_birth)))))
