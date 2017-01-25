@@ -1,6 +1,12 @@
-(ns delimited-file-reader.records)
+(ns delimited-file-reader.records
+  (:require [clojure.string :as s]
+            [clj-time.format :as f]))
 
-;; TODO: Look at reducing the repetion of arguments in defn and defrecord
+(def date-format (f/formatter "M/d/yyyy"))
+(defn read-date [str] (f/parse date-format str))
+(defn write-date [date] (f/unparse date-format date))
+(defn date? [str] (instance? org.joda.time.DateTime (try (read-date str)
+                                                         (catch java.lang.IllegalArgumentException e))))
 
 (defrecord Person [last_name
                    first_name
@@ -8,9 +14,12 @@
                    date_of_birth
                    favorite_color])
 
-(defrecord XPerson [last_name])
+(defrecord XPerson [last_name date_of_birth])
 
-(def person-transformations { :last_name [clojure.string/reverse :last_name] })
+(def person-transformations {
+                             :last_name [s/reverse :last_name]
+                             :date_of_birth [read-date :date_of_birth]
+                             })
 
 (defn transform-person
   [xperson transformations]
@@ -24,15 +33,15 @@
   [{ :keys [last_name first_name gender date_of_birth favorite_color] :as fields }]
   (map->Person fields))
 
-(defn make-xperson
-  "Make a new Person record"
-  [{ :keys [last_name] :as fields }]
-  (map->XPerson fields))
+;(defn make-xperson
+  ;"Make a new Person record"
+  ;[{ :keys [last_name date_of_birth] :as fields }]
+  ;(map->XPerson fields))
 
 (defn make-xperson
   "Make a new XPerson record"
-  [{ :keys [last_name] :as fields }]
-  (map->XPerson (transform-person { :last_name "Smith" } person-transformations)))
+  [{ :keys [last_name date_of_birth] :as fields }]
+  (map->XPerson (transform-person { :last_name "Smith" :date_of_birth "7/6/1975" } person-transformations)))
 
 
 
