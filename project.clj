@@ -21,6 +21,7 @@
             [jonase/eastwood "0.2.3"] ;; Clojure linting
             [lein-localrepo "0.5.3"]
             [venantius/ultra "0.5.1"] ;; Improved test output, repl printing
+            [lein-cljfmt "0.5.6"]
             [lein-pprint "1.1.2"]] ;; Pretty printing
   :test-selectors {
                    :default (complement :slow)
