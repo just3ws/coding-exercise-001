@@ -8,8 +8,7 @@
                  [clj-time "0.13.0"]
                  [org.clojure/data.csv "0.1.3"]
                  [semantic-csv "0.1.1-just3ws"] ;; Because :transform-header
-                 [camel-snake-kebab "0.4.0"]
-                 [fipp "0.6.8"]]
+                 [camel-snake-kebab "0.4.0"]]
   :main ^{ :skip-aot true } delimited-file-reader.runner
   :aot [delimited-file-reader.runner]
   ;: main delimited-file-reader.core

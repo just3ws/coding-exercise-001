@@ -1,6 +1,7 @@
-(ns delimited-file-reader.sniffer-test
+(ns ^:focus delimited-file-reader.sniffer-test
   (:require [clojure.test :refer :all]
             [delimited-file-reader.sniffer :refer :all]
+            [clojure.pprint :refer :all]
             [clojure.java.io :as io]))
 
 (def pipe-file (open-file "test/pipe.txt"))
@@ -26,3 +27,5 @@
   (is (= \space (infer-deliminator space-file)))
   (is (= \| (infer-deliminator pipe-file)))
   (is (= \, (infer-deliminator comma-file))))
+
+(pprint (load-data pipe-file))

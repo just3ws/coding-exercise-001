@@ -1,6 +1,12 @@
 (ns delimited-file-reader.sniffer
   (:require [clojure.java.io :as io]
-            [clojure.data.csv :as csv]))
+            [clojure.data.csv :as csv]
+            [semantic-csv.core :as sc]
+            [fipp.edn :refer (pprint) :rename {pprint fipp}]
+            [delimited-file-reader.reader :as r]
+            [camel-snake-kebab.core :refer :all]
+            [clojure.string :as s]
+            [delimited-file-reader.reader :as r]))
 
 (defn open-file [path] (io/file (io/resource path)))
 
@@ -28,8 +34,23 @@
     (pipe-delimited? file) \|
     (space-delimited? file) \space))
 
+(defn transform-header [header]
+  (->> header
+       s/trim
+       ->snake_case_keyword))
+
+(defn cast-date-of-birth [dob]
+  (if (r/date? dob)
+    (r/read-date dob)
+    nil))
+
 (defn load-data [file]
   (let [deliminator (infer-deliminator file)]
-  (with-open [in-file (io/reader file)]
-    (doall
-      (csv/read-csv in-file :separator deliminator)))))
+    (with-open [in-file (io/reader file)]
+      (->>
+        (csv/read-csv in-file :separator deliminator)
+        (sc/remove-comments)
+        (sc/mappify { :transform-header transform-header :keyify true })
+        (sc/cast-with #(->> % str s/trim))
+        (sc/cast-with { :date_of_birth cast-date-of-birth })
+        doall))))
