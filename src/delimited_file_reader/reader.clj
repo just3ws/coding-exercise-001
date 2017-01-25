@@ -15,9 +15,7 @@
        ->snake_case_keyword))
 
 (defn cast-date-of-birth [dob]
-  (if (d/date? dob)
-    (d/read-date dob)
-    nil))
+ (when (d/date? dob) (d/read-date dob)))
 
 (defn load-data [file]
   (let [deliminator (sniffer/infer-deliminator file)]
