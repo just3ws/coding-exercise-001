@@ -1,12 +1,11 @@
 (ns ^:focus delimited-file-reader.sniffer-test
   (:require [clojure.test :refer :all]
-            [delimited-file-reader.sniffer :refer :all]
-            [clojure.pprint :refer :all]
-            [clojure.java.io :as io]))
+            [delimited-file-reader.reader :as r]
+            [delimited-file-reader.sniffer :refer :all]))
 
-(def pipe-file (open-file "test/pipe.txt"))
-(def comma-file (open-file "test/comma.txt"))
-(def space-file (open-file "test/space.txt"))
+(def pipe-file (r/open-file "test/pipe.txt"))
+(def comma-file (r/open-file "test/comma.txt"))
+(def space-file (r/open-file "test/space.txt"))
 
 (deftest pipe-test
   (is (pipe-delimited? pipe-file))
@@ -28,4 +27,3 @@
   (is (= \| (infer-deliminator pipe-file)))
   (is (= \, (infer-deliminator comma-file))))
 
-(pprint (load-data pipe-file))
