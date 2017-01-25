@@ -4,7 +4,6 @@
             [delimited-file-reader.date :as d])
   (:import [delimited_file_reader.records Person]))
 
-
 ;; Directly initialize Person defrecord
 (testing "Directly generate a Person record"
   (def favorite_color "green")
@@ -30,12 +29,11 @@
   (def first_name "Mike")
   (def last_name "Hall")
 
-  (def valid_person (make-person {
-                                  :favorite_color favorite_color
+  (def valid_person (make-person {:favorite_color favorite_color
                                   :date_of_birth date_of_birth
                                   :gender gender
                                   :first_name first_name
-                                  :last_name last_name }))
+                                  :last_name last_name}))
 
   (testing "with valid attributes"
     (is (= (get valid_person :last_name) last_name))

@@ -15,16 +15,16 @@
        ->snake_case_keyword))
 
 (defn cast-date-of-birth [dob]
- (when (d/date? dob) (d/read-date dob)))
+  (when (d/date? dob) (d/read-date dob)))
 
 (defn load-data [file]
   (let [deliminator (sniffer/infer-deliminator file)]
     (with-open [in-file (io/reader file)]
       (->>
-        (csv/read-csv in-file :separator deliminator)
-        (sc/remove-comments)
-        (sc/mappify { :transform-header transform-header :keyify true })
-        (sc/cast-with #(->> % str s/trim))
-        (sc/cast-with { :date_of_birth cast-date-of-birth })
-        doall))))
+       (csv/read-csv in-file :separator deliminator)
+       (sc/remove-comments)
+       (sc/mappify {:transform-header transform-header :keyify true})
+       (sc/cast-with #(->> % str s/trim))
+       (sc/cast-with {:date_of_birth cast-date-of-birth})
+       doall))))
 
