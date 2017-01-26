@@ -7,7 +7,8 @@
                    date_of_birth
                    favorite_color])
 
-(defn transform-fields [fields]
+(defn transform-fields
+  [fields]
   (update fields :date_of_birth d/read-date))
 
 (defn make-person
