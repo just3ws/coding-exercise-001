@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+pwd
+
+mkdir -p ~/tmp/plik
+rm -rf ~/tmp/plik/output.json
+
+lein run --input ~/just3ws/coding-exercise-001/resources/test/comma.txt --output ~/tmp/plik/output.json
