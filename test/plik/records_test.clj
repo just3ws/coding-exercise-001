@@ -4,41 +4,41 @@
             [plik.date :as d])
   (:import [plik.records Person]))
 
-;; Directly initialize Person defrecord
+ ;; Directly initialize Person defrecord
 (testing "Directly generate a Person record"
-  (def favorite_color "green")
-  (def date_of_birth "7/6/1975")
-  (def gender "F")
-  (def first_name "Aneta")
-  (def last_name "Hall")
+  (let [favorite-color "green"
+        date-of-birth "7/6/1975"
+        gender "F"
+        first-name "Aneta"
+        last-name "Hall"]
 
-  (def valid_person (Person. last_name first_name gender date_of_birth favorite_color))
+    (def aneta (Person. last-name first-name gender date-of-birth favorite-color))
 
-  (testing "with valid attributes"
-    (is (= (get valid_person :last_name) last_name))
-    (is (= (get valid_person :first_name) first_name))
-    (is (= (get valid_person :gender) gender))
-    (is (= (get valid_person :date_of_birth) date_of_birth))
-    (is (= (get valid_person :favorite_color) favorite_color))))
+    (testing "with valid attributes"
+      (is (identical? (get aneta :last_name) last-name))
+      (is (identical? (get aneta :first_name) first-name))
+      (is (identical? (get aneta :gender) gender))
+      (is (identical? (get aneta :date_of_birth) date-of-birth))
+      (is (identical? (get aneta :favorite_color) favorite-color)))))
 
 ;; Initialize Person record using constructor function
 (testing "Construct a Person record"
-  (def favorite_color "blue")
-  (def date_of_birth "12/19/1975")
-  (def gender "M")
-  (def first_name "Mike")
-  (def last_name "Hall")
+  (let [favorite-color "blue"
+        date-of-birth "12/19/1975"
+        gender "M"
+        first-name "Mike"
+        last-name "Hall"]
 
-  (def valid_person (make-person {:favorite_color favorite_color
-                                  :date_of_birth date_of_birth
-                                  :gender gender
-                                  :first_name first_name
-                                  :last_name last_name}))
+    (def mike (make-person {:favorite_color favorite-color
+                            :date_of_birth date-of-birth
+                            :gender gender
+                            :first_name first-name
+                            :last_name last-name}))
 
-  (testing "with valid attributes"
-    (is (= (get valid_person :last_name) last_name))
-    (is (= (get valid_person :first_name) first_name))
-    (is (= (get valid_person :gender) gender))
-    (is (= (get valid_person :favorite_color) favorite_color))
-    (is (instance? org.joda.time.DateTime (get valid_person :date_of_birth)))
-    (is (d/date? (get valid_person :date_of_birth)))))
+    (testing "with valid attributes"
+      (is (identical? (get mike :last_name) last-name))
+      (is (identical? (get mike :first_name) first-name))
+      (is (identical? (get mike :gender) gender))
+      (is (identical? (get mike :favorite_color) favorite-color))
+      (is (instance? org.joda.time.DateTime (get mike :date_of_birth)))
+      (is (d/date? (get mike :date_of_birth))))))
