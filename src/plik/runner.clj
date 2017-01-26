@@ -4,22 +4,15 @@
             [clojure.string :as s])
   (:gen-class))
 
-
 (def cli-options
-  [["-i" "--input INPUT" "Input file"
+  [["-i" "--input INPUT" "Fully-qualified path to the input file"
     :parse-fn #(-> % str s/trim)
-    :validate [#(r/file-exists? %) "The input file must exist"]
-    ]
-   ["-v" nil "Verbosity level" :id :verbosity
-    :default 0
-    :assoc-fn (fn [m k _] (update-in m [k] inc))]
-   ["-h" "--help"]])
+    :validate [#(r/file-exists? %) "The input file must exist"]]])
 
 (defn -main
-  "Command-line entry point."
   [& args]
-  (println args))
+  (let [{ :keys [options arguments] } (parse-opts args cli-options)]
+    (println options)))
 
-(println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/CHANGELOG.md"))
-(println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/NOPE.txt"))
-
+;(println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/CHANGELOG.md"))
+;(println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/NOPE.txt"))
