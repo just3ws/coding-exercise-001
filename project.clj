@@ -8,6 +8,7 @@
                  [clj-time "0.13.0"]
                  [org.clojure/data.csv "0.1.3"]
                  [org.clojure/tools.cli "0.3.5"]
+                 [org.clojure/data.json "0.2.6"]
                  [semantic-csv "0.1.1-just3ws"] ;; Because :transform-header
                  [camel-snake-kebab "0.4.0"]]
   :main ^{ :skip-aot true } plik.runner
