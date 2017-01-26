@@ -2,7 +2,7 @@
   (:require [clojure.tools.cli :refer [parse-opts]]
             [clojure.pprint :refer :all]
             [plik.reader :as r]
-            [plik.transformer :as t]
+            [plik.writer :as w]
             [plik.sniffer :as sniffer]
             [clojure.string :as s])
   (:gen-class))
@@ -17,6 +17,7 @@
 (defn -main
   [& args]
   (let [{:keys [options arguments]} (parse-opts args cli-options)]
-    (let [input (get options :input)]
-      (let [file (r/load-data input (sniffer/infer-deliminator input))]
-        (println (t/jsonify file))))))
+    (let [input (get options :input)
+          output (get options :output)]
+      (let [data (r/load-data input (sniffer/infer-deliminator input))]
+        (w/write-json-rows output data)))))
