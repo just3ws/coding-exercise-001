@@ -1,8 +1,9 @@
 (ns plik.writer
-  (:require [clojure.data.json :as json]
+  (:require  [clojure.string :as s]
+            [clojure.data.json :as json]
             [clj-time.format :as f]
             [plik.reader :as r]
-            [clojure.string :as s]))
+            [plik.sniffer :as sniffer]))
 
 (defn as-date-string
   [date]
@@ -13,4 +14,4 @@
 
 (defn jsonify
   [file]
-  (json/write-str (r/load-data file) :value-fn date-aware-value-writer))
+  (json/write-str (r/load-data file (sniffer/infer-deliminator file)) :value-fn date-aware-value-writer))

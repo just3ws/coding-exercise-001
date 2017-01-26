@@ -9,7 +9,9 @@
 (def cli-options
   [["-i" "--input INPUT" "Fully-qualified path to the input file"
     :parse-fn #(-> % str s/trim)
-    :validate [#(r/file-exists? %) "The input file must exist"]]])
+    :validate [#(r/file-exists? %) "The input file must exist"] ]
+   ["-o" "--output OUTPUT" "Fully-qualified path to the output file"
+    :parse-fn #(-> % str s/trim)]])
 
 (defn -main
   [& args]

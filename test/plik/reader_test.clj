@@ -8,7 +8,7 @@
 (def space-file (r/open-file "test/space.txt"))
 
 (testing "Read in pipe file and converting to data"
-  (let [data (r/load-data pipe-file)]
+  (let [data (r/load-data pipe-file \|)]
     (is (= 10 (count data)))
     (testing "verify the first record is as expected"
       (let [datum (first data)]
@@ -30,7 +30,7 @@
         (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))
 
 (testing "Read in comma file and converting to data"
-  (let [data (r/load-data comma-file)]
+  (let [data (r/load-data comma-file \,)]
     (is (= 10 (count data)))
     (testing "verify the first record is as expected"
       (let [datum (first data)]
@@ -52,7 +52,7 @@
         (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))
 
 (testing "Read in space file and converting to data"
-  (let [data (r/load-data space-file)]
+  (let [data (r/load-data space-file \space)]
     (is (= 10 (count data)))
     (testing "verify the first record is as expected"
       (let [datum (first data)]
