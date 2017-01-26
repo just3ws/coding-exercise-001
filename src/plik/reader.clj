@@ -9,6 +9,9 @@
 
 (defn open-file [path] (io/file (io/resource path)))
 
+(defn file-exists [path]
+	(.exists (clojure.java.io/as-file path)))
+
 (defn transform-header [header]
   (->> header
        s/trim
