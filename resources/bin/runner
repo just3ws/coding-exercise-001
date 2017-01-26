@@ -9,11 +9,10 @@ rm -rf "$output_file"
 
 echo Run Clojure app
 
-
 echo "Outputting to $output_file"
 
 comma_file="$HOME/just3ws/coding-exercise-001/resources/test/comma.txt"
-echo "Reading from $comma_file"
+echo "Reading comma delimited input from $comma_file"
 lein run --input "$comma_file"  --output "$output_file"
 
 space_file="$HOME/just3ws/coding-exercise-001/resources/test/space.txt"
