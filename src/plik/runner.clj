@@ -1,5 +1,6 @@
 (ns plik.runner
   (:require [clojure.tools.cli :refer [parse-opts]]
+            [clojure.pprint :refer :all]
             [plik.reader :as r]
             [clojure.string :as s])
   (:gen-class))
@@ -12,10 +13,8 @@
 (defn -main
   [& args]
   (let [{:keys [options arguments]} (parse-opts args cli-options)]
-    (println options)
     (let [input (get options :input)]
-      (println input)
-      (println (r/load-data input)))))
+      (pprint (r/load-data input)))))
 
 ;(println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/CHANGELOG.md"))
 ;(println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/NOPE.txt"))

@@ -1,6 +1,5 @@
 (ns plik.reader-test
   (:require [clojure.test :refer :all]
-            [clojure.pprint :refer :all]
             [clj-time.core :as t]
             [plik.reader :as r]))
 
