@@ -12,7 +12,10 @@
 (defn -main
   [& args]
   (let [{ :keys [options arguments] } (parse-opts args cli-options)]
-    (println options)))
+    (println options)
+    (let [input (get options :input)]
+      (println input)
+      (println (r/load-data input)))))
 
 ;(println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/CHANGELOG.md"))
 ;(println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/NOPE.txt"))
