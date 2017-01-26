@@ -11,7 +11,7 @@
 
 (defn -main
   [& args]
-  (let [{ :keys [options arguments] } (parse-opts args cli-options)]
+  (let [{:keys [options arguments]} (parse-opts args cli-options)]
     (println options)
     (let [input (get options :input)]
       (println input)

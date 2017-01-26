@@ -30,10 +30,10 @@
   (let [deliminator (sniffer/infer-deliminator file)]
     (with-open [in-file (io/reader file)]
       (->>
-        (csv/read-csv in-file :separator deliminator)
-        (sc/remove-comments)
-        (sc/mappify {:transform-header transform-header :keyify true})
-        (sc/cast-with #(->> % str s/trim))
-        (sc/cast-with {:date_of_birth cast-date-of-birth})
-        doall))))
+       (csv/read-csv in-file :separator deliminator)
+       (sc/remove-comments)
+       (sc/mappify {:transform-header transform-header :keyify true})
+       (sc/cast-with #(->> % str s/trim))
+       (sc/cast-with {:date_of_birth cast-date-of-birth})
+       doall))))
 
