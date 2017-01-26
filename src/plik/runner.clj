@@ -20,6 +20,6 @@
 	[& args]
 	(println args))
 
-(println (r/file-exists"/Users/mike/just3ws/coding-exercise-001/CHANGELOG.md"))
+(println (r/file-exists "/Users/mike/just3ws/coding-exercise-001/CHANGELOG.md"))
 (println (r/file-exists "/Users/mike/just3ws/coding-exercise-001/NOPE.txt"))
 
