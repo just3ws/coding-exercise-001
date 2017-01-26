@@ -15,3 +15,7 @@
 (defn jsonify
   [data]
   (json/write-str data :value-fn date-aware-value-writer))
+
+(defn transform-json-sequence
+  [data]
+  (map jsonify data))

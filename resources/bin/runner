@@ -1,8 +1,29 @@
 #!/usr/bin/env bash
 
-pwd
+echo Prepare output directory
 
 mkdir -p ~/tmp/plik
-rm -rf ~/tmp/plik/output.json
 
-lein run --input ~/just3ws/coding-exercise-001/resources/test/comma.txt --output ~/tmp/plik/output.json
+output_file="$HOME/tmp/plik/output.json"
+rm -rf "$output_file"
+
+echo Run Clojure app
+
+
+echo "Outputting to $output_file"
+
+comma_file="$HOME/just3ws/coding-exercise-001/resources/test/comma.txt"
+echo "Reading from $comma_file"
+lein run --input "$comma_file"  --output "$output_file"
+
+space_file="$HOME/just3ws/coding-exercise-001/resources/test/space.txt"
+echo "Reading space delimited input from $space_file"
+lein run --input "$space_file"  --output "$output_file"
+
+pipe_file="$HOME/just3ws/coding-exercise-001/resources/test/pipe.txt"
+echo "Reading pipe delimited input from $pipe_file"
+lein run --input "$pipe_file"  --output "$output_file"
+
+echo Complete
+
+open "$output_file"
