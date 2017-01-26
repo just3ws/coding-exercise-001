@@ -12,6 +12,11 @@
 A Clojure library designed to parse delimited files that may be using space,
 comma, or pipe delimited format.
 
+## Usage
+
+- clone repo
+- `./resources/bin/runner`
+
 ## License
 
 Copyright © 2017 Mike Hall

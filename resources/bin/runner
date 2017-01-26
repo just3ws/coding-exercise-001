@@ -2,6 +2,8 @@
 
 echo Prepare output directory
 
+wd=$(pwd)
+
 mkdir -p ~/tmp/plik
 
 output_file="$HOME/tmp/plik/output.json"
@@ -11,15 +13,15 @@ echo Run Clojure app
 
 echo "Outputting to $output_file"
 
-comma_file="$HOME/just3ws/coding-exercise-001/resources/test/many-people.csv"
+comma_file="$wd/resources/test/many-people.csv"
 echo "Reading comma delimited input from $comma_file"
 lein run --input "$comma_file"  --output "$output_file"
 
-space_file="$HOME/just3ws/coding-exercise-001/resources/test/many-people.txt"
+space_file="$wd/resources/test/many-people.txt"
 echo "Reading space delimited input from $space_file"
 lein run --input "$space_file"  --output "$output_file"
 
-pipe_file="$HOME/just3ws/coding-exercise-001/resources/test/many-people.psv"
+pipe_file="$wd/resources/test/many-people.psv"
 echo "Reading pipe delimited input from $pipe_file"
 lein run --input "$pipe_file"  --output "$output_file"
 
