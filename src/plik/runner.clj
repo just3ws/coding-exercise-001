@@ -19,13 +19,14 @@
 
 (defn usage
   [options-summary]
-  (->> ["plik: Read in delimited files, optionally sort, then write as JSON"
-        ""
-        "Usage: plik [options]"
-        ""
-        "Options:"
-        options-summary]
-       (string/join \newline)))
+  (string/join
+    \newline
+    ["plik: Read in delimited files, optionally sort, then write as JSON"
+     ""
+     "Usage: plik [options]"
+     ""
+     "Options:"
+     options-summary]))
 
 (defn error-msg
   [errors]
@@ -43,9 +44,9 @@
     ;; Handle help and error conditions
     (cond
       (:help options) (exit 0 (usage summary))
-      (not= (count arguments) 0) (exit 1 (usage summary))
-      (= 0 (count (str (:input options)))) (exit 1 (usage summary))
-      (= 0 (count (str (:output options)))) (exit 1 (usage summary))
+      (not= (zero? (count arguments)) (exit 1 (usage summary))
+      (zero? (count (str (:input options)))) (exit 1 (usage summary))
+      (zero? (count (str (:output options)))) (exit 1 (usage summary))
       errors (exit 1 (error-msg errors)))
     ;; Execute program with options
     (let [input (:input options)
