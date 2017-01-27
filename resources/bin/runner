@@ -1,30 +1,30 @@
 #!/usr/bin/env bash
 
-echo Prepare output directory
+printf '\33c\e[3J'
 
-wd=$(pwd)
+echo Begin
 
+cwd=$(pwd)
+
+output_directory="$HOME/tmp/plik"
+rm -rf "$output_directory"
 mkdir -p ~/tmp/plik
 
-output_file="$HOME/tmp/plik/output.json"
-rm -rf "$output_file"
+echo
+echo "!!! Output will be written to $output_directory"
+echo
 
-echo Run Clojure app
+comma_file="$cwd/resources/test/many-people.csv"
+echo "Reading in comma delimited data from $comma_file"
+lein trampoline run --input "$comma_file"  --output "$output_directory"
 
-echo "Outputting to $output_file"
+space_file="$cwd/resources/test/many-people.txt"
+echo "Reading in space delimited data from $space_file"
+lein trampoline run --input "$space_file"  --output "$output_directory"
 
-comma_file="$wd/resources/test/many-people.csv"
-echo "Reading comma delimited input from $comma_file"
-lein run --input "$comma_file"  --output "$output_file"
+pipe_file="$cwd/resources/test/many-people.psv"
+echo "Reading in pipe delimited data from $pipe_file"
+lein trampoline run --input "$pipe_file"  --output "$output_directory"
 
-space_file="$wd/resources/test/many-people.txt"
-echo "Reading space delimited input from $space_file"
-lein run --input "$space_file"  --output "$output_file"
-
-pipe_file="$wd/resources/test/many-people.psv"
-echo "Reading pipe delimited input from $pipe_file"
-lein run --input "$pipe_file"  --output "$output_file"
-
-echo Complete
-
-open "$output_file"
+open "$output_directory"
+echo Done

@@ -10,11 +10,17 @@
   [path]
   (io/file (io/resource path)))
 
-; (println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/CHANGELOG.md"))
-; (println (r/file-exists? "/Users/mike/just3ws/coding-exercise-001/NOPE.txt"))
 (defn file-exists?
   [path]
-  (.exists (clojure.java.io/as-file path)))
+  (.exists (io/as-file path)))
+
+(defn append-to-base-path
+  [base-path to-join]
+  (str (java.nio.file.Paths/get base-path (into-array to-join))))
+
+(defn directory-exists?
+  [path]
+  (.isDirectory (io/file path)))
 
 (defn transform-header
   [header]
