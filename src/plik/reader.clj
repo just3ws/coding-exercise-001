@@ -4,7 +4,8 @@
             [clojure.data.csv :as csv]
             [semantic-csv.core :as sc]
             [camel-snake-kebab.core :refer :all]
-            [plik.date :as d]))
+            [plik.date :as d])
+  (:import (java.nio.file Paths)))
 
 (defn open-file
   [path]
@@ -16,7 +17,7 @@
 
 (defn append-to-base-path
   [base-path to-join]
-  (str (java.nio.file.Paths/get base-path (into-array to-join))))
+  (str (Paths/get base-path (into-array to-join))))
 
 (defn directory-exists?
   [path]
