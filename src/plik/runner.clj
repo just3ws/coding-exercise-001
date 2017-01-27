@@ -1,9 +1,9 @@
 (ns plik.runner
-  (:require [clojure.tools.cli :refer [parse-opts]]
+  (:require [clojure.string :as string]
+            [clojure.tools.cli :refer [parse-opts]]
             [plik.reader]
             [plik.writer]
-            [plik.sniffer]
-            [clojure.string :as string])
+            [plik.sniffer])
   (:gen-class))
 
 (def cli-options
@@ -49,6 +49,6 @@
       errors (exit 1 (error-msg errors)))
     ;; Execute program with options
     (let [input (:input options)
-          output (plik.reader/append-to-base-path (:output options) ["plik-data.json"]) ]
+          output (plik.reader/append-to-base-path (:output options) ["plik-data.json"])]
       (let [data (plik.reader/load-data input (plik.sniffer/infer-deliminator input))]
         (plik.writer/write-json-rows output data)))))

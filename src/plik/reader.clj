@@ -1,10 +1,10 @@
 (ns plik.reader
   (:require [clojure.string :as s]
-            [clojure.java.io :as io]
             [clojure.data.csv :as csv]
+            [clojure.java.io :as io]
             [semantic-csv.core :as sc]
             [camel-snake-kebab.core :refer :all]
-            [plik.date :as d])
+            [plik.date])
   (:import (java.nio.file Paths)))
 
 (defn open-file
@@ -31,7 +31,7 @@
 
 (defn cast-date-of-birth
   [dob]
-  (when (d/date? dob) (d/read-date dob)))
+  (when (plik.date/date? dob) (plik.date/read-date dob)))
 
 (defn peek-file
   [file]
@@ -42,9 +42,9 @@
   [file delimiter]
   (with-open [in-file (io/reader file)]
     (->>
-      (csv/read-csv in-file :separator delimiter)
-      (sc/remove-comments)
-      (sc/mappify {:transform-header transform-header :keyify true})
-      (sc/cast-with #(->> % str s/trim))
-      (sc/cast-with {:date_of_birth cast-date-of-birth})
-      doall)))
+     (csv/read-csv in-file :separator delimiter)
+     (sc/remove-comments)
+     (sc/mappify {:transform-header transform-header :keyify true})
+     (sc/cast-with #(->> % str s/trim))
+     (sc/cast-with {:date_of_birth cast-date-of-birth})
+     doall)))

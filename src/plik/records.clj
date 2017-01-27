@@ -1,5 +1,5 @@
 (ns plik.records
-  (:require [plik.date :as d]))
+  (:require [plik.date]))
 
 (defrecord Person [last_name
                    first_name
@@ -9,7 +9,7 @@
 
 (defn transform-fields
   [fields]
-  (update fields :date_of_birth d/read-date))
+  (update fields :date_of_birth plik.date/read-date))
 
 (defn make-person
   "Make a new Person record"

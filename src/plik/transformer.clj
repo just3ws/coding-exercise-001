@@ -1,12 +1,12 @@
 (ns plik.transformer
   (:require [clojure.string :as s]
             [clojure.data.json :as json]
-            [plik.date :as d]
-            [clj-time.format :as f]))
+            [clj-time.format :as f]
+            [plik.date]))
 
 (defn as-date-string
   [date]
-  (f/unparse d/date-format date))
+  (f/unparse plik.date/date-format date))
 
 (defn date-aware-value-writer
   [key value]

@@ -1,6 +1,6 @@
 (ns plik.date
-  (:require [clj-time.format :as f]
-            [clojure.string :as s])
+  (:require [clojure.string :as s]
+            [clj-time.format :as f])
   (:import (org.joda.time DateTime)))
 
 (def date-format (f/formatter "M/d/yyyy"))
