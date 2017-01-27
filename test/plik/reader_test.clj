@@ -1,7 +1,8 @@
 (ns plik.reader-test
   (:require [clojure.test :refer :all]
             [clj-time.core :as t]
-            [plik.reader :as r]))
+            [plik.reader :as r])
+  (:import (org.joda.time DateTime)))
 
 (def pipe-file (r/open-file "test/pipe.txt"))
 (def comma-file (r/open-file "test/comma.txt"))
@@ -17,7 +18,7 @@
         (is (= "Abbey" (get datum :first_name)))
         (is (= "M" (get datum :gender)))
         (is (= "Orchid" (get datum :favorite_color)))
-        (is (instance? org.joda.time.DateTime (get datum :date_of_birth)))
+        (is (instance? DateTime (get datum :date_of_birth)))
         (is (= (t/date-time 2021 10 10) (get datum :date_of_birth)))))
     (testing "verify the last record is as expected"
       (let [datum (last data)]
@@ -26,7 +27,7 @@
         (is (= "Emerald" (get datum :first_name)))
         (is (= "M" (get datum :gender)))
         (is (= "Tan" (get datum :favorite_color)))
-        (is (instance? org.joda.time.DateTime (get datum :date_of_birth)))
+        (is (instance? DateTime (get datum :date_of_birth)))
         (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))
 
 (testing "Read in comma file and converting to data"
@@ -39,7 +40,7 @@
         (is (= "Abbey" (get datum :first_name)))
         (is (= "M" (get datum :gender)))
         (is (= "Orchid" (get datum :favorite_color)))
-        (is (instance? org.joda.time.DateTime (get datum :date_of_birth)))
+        (is (instance? DateTime (get datum :date_of_birth)))
         (is (= (t/date-time 2021 10 10) (get datum :date_of_birth)))))
     (testing "verify the last record is as expected"
       (let [datum (last data)]
@@ -48,7 +49,7 @@
         (is (= "Emerald" (get datum :first_name)))
         (is (= "M" (get datum :gender)))
         (is (= "Tan" (get datum :favorite_color)))
-        (is (instance? org.joda.time.DateTime (get datum :date_of_birth)))
+        (is (instance? DateTime (get datum :date_of_birth)))
         (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))
 
 (testing "Read in space file and converting to data"
@@ -61,7 +62,7 @@
         (is (= "Abbey" (get datum :first_name)))
         (is (= "M" (get datum :gender)))
         (is (= "Orchid" (get datum :favorite_color)))
-        (is (instance? org.joda.time.DateTime (get datum :date_of_birth)))
+        (is (instance? DateTime (get datum :date_of_birth)))
         (is (= (t/date-time 2021 10 10) (get datum :date_of_birth)))))
     (testing "verify the last record is as expected"
       (let [datum (last data)]
@@ -70,5 +71,5 @@
         (is (= "Emerald" (get datum :first_name)))
         (is (= "M" (get datum :gender)))
         (is (= "Tan" (get datum :favorite_color)))
-        (is (instance? org.joda.time.DateTime (get datum :date_of_birth)))
+        (is (instance? DateTime (get datum :date_of_birth)))
         (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))

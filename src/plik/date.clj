@@ -1,6 +1,7 @@
 (ns plik.date
   (:require [clj-time.format :as f]
-            [clojure.string :as s]))
+            [clojure.string :as s])
+  (:import (org.joda.time DateTime)))
 
 (def date-format (f/formatter "M/d/yyyy"))
 
@@ -14,7 +15,7 @@
 
 (defn date?
   [v]
-  (if (instance? org.joda.time.DateTime v)
+  (if (instance? DateTime v)
     true
-    (instance? org.joda.time.DateTime (try (read-date v)
-                                           (catch java.lang.IllegalArgumentException e)))))
+    (instance? DateTime (try (read-date v)
+                             (catch IllegalArgumentException e)))))
