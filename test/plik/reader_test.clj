@@ -1,15 +1,15 @@
 (ns plik.reader-test
   (:require [clojure.test :refer :all]
             [clj-time.core :as t]
-            [plik.reader :as r])
+            [plik.reader :as subject])
   (:import (org.joda.time DateTime)))
 
-(def pipe-file (r/open-file "test/pipe.txt"))
-(def comma-file (r/open-file "test/comma.txt"))
-(def space-file (r/open-file "test/space.txt"))
+(def pipe-file (subject/open-file "test/pipe.txt"))
+(def comma-file (subject/open-file "test/comma.txt"))
+(def space-file (subject/open-file "test/space.txt"))
 
 (testing "Read in pipe file and converting to data"
-  (let [data (r/load-data pipe-file \|)]
+  (let [data (subject/load-data pipe-file \|)]
     (is (= 10 (count data)))
     (testing "verify the first record is as expected"
       (let [datum (first data)]
@@ -31,7 +31,7 @@
         (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))
 
 (testing "Read in comma file and converting to data"
-  (let [data (r/load-data comma-file \,)]
+  (let [data (subject/load-data comma-file \,)]
     (is (= 10 (count data)))
     (testing "verify the first record is as expected"
       (let [datum (first data)]
@@ -53,7 +53,7 @@
         (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))
 
 (testing "Read in space file and converting to data"
-  (let [data (r/load-data space-file \space)]
+  (let [data (subject/load-data space-file \space)]
     (is (= 10 (count data)))
     (testing "verify the first record is as expected"
       (let [datum (first data)]

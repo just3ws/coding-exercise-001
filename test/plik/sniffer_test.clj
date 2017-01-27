@@ -1,29 +1,29 @@
 (ns ^:focus plik.sniffer-test
   (:require [clojure.test :refer :all]
-            [plik.reader :as r]
-            [plik.sniffer :refer :all]))
+            [plik.reader]
+            [plik.sniffer :as subject]))
 
-(def pipe-file (r/open-file "test/pipe.txt"))
-(def comma-file (r/open-file "test/comma.txt"))
-(def space-file (r/open-file "test/space.txt"))
+(def pipe-file (plik.reader/open-file "test/pipe.txt"))
+(def comma-file (plik.reader/open-file "test/comma.txt"))
+(def space-file (plik.reader/open-file "test/space.txt"))
 
 (deftest pipe-test
-  (is (pipe-delimited? pipe-file))
-  (is (not (pipe-delimited? comma-file)))
-  (is (not (pipe-delimited? space-file))))
+  (is (subject/pipe-delimited? pipe-file))
+  (is (not (subject/pipe-delimited? comma-file)))
+  (is (not (subject/pipe-delimited? space-file))))
 
 (deftest comma-test
-  (is (comma-delimited? comma-file))
-  (is (not (comma-delimited? pipe-file)))
-  (is (not (comma-delimited? space-file))))
+  (is (subject/comma-delimited? comma-file))
+  (is (not (subject/comma-delimited? pipe-file)))
+  (is (not (subject/comma-delimited? space-file))))
 
 (deftest space-test
-  (is (space-delimited? space-file))
-  (is (not (space-delimited? pipe-file)))
-  (is (not (space-delimited? comma-file))))
+  (is (subject/space-delimited? space-file))
+  (is (not (subject/space-delimited? pipe-file)))
+  (is (not (subject/space-delimited? comma-file))))
 
 (deftest infer-deliminator-test
-  (is (= \space (infer-deliminator space-file)))
-  (is (= \| (infer-deliminator pipe-file)))
-  (is (= \, (infer-deliminator comma-file))))
+  (is (= \space (subject/infer-deliminator space-file)))
+  (is (= \| (subject/infer-deliminator pipe-file)))
+  (is (= \, (subject/infer-deliminator comma-file))))
 

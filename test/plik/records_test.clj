@@ -1,7 +1,7 @@
 (ns plik.records-test
   (:require [clojure.test :refer :all]
-            [plik.records :refer :all]
-            [plik.date :as d])
+            [plik.date]
+            [plik.records :refer :all])
   (:import [plik.records Person]
            (org.joda.time DateTime)))
 
@@ -30,11 +30,11 @@
         first-name "Mike"
         last-name "Hall"]
 
-    (def mike (make-person {:favorite_color favorite-color
-                            :date_of_birth  date-of-birth
-                            :gender         gender
-                            :first_name     first-name
-                            :last_name      last-name}))
+    (def mike (plik.records/make-person {:favorite_color favorite-color
+                                         :date_of_birth  date-of-birth
+                                         :gender         gender
+                                         :first_name     first-name
+                                         :last_name      last-name}))
 
     (testing "with valid attributes"
       (is (identical? (get mike :last_name) last-name))
@@ -42,4 +42,4 @@
       (is (identical? (get mike :gender) gender))
       (is (identical? (get mike :favorite_color) favorite-color))
       (is (instance? DateTime (get mike :date_of_birth)))
-      (is (d/date? (get mike :date_of_birth))))))
+      (is (plik.date/date? (get mike :date_of_birth))))))
