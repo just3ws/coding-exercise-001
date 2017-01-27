@@ -1,4 +1,4 @@
-(ns ^:focus plik.sniffer-test
+(ns plik.sniffer-test
   (:require [clojure.test :refer :all]
             [plik.reader]
             [plik.sniffer :as subject]))
