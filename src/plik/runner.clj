@@ -8,11 +8,11 @@
 	(:gen-class))
 
 (def cli-options
-	[["-i" "--input INPUT" "Fully-qualified path to input file"
+	[["-i" "--input INPUT" "Required. Fully-qualified path to input file"
 		:parse-fn #(-> % str string/trim)
 		:validate [#(r/file-exists? %) "The input file must exist"]
 		:required true]
-	 ["-o" "--output OUTPUT" "Fully-qualified path to output directory"
+	 ["-o" "--output OUTPUT" "Required. Fully-qualified path to output directory"
 		:parse-fn #(-> % str string/trim)
 		:validate [#(r/directory-exists? %) "The output directory must exist. File will be created or appended."]
 		:required true]
@@ -45,6 +45,8 @@
 		(cond
 			(:help options) (exit 0 (usage summary))
 			(not= (count arguments) 0) (exit 1 (usage summary))
+			(= 0 (count (str (:input options)))) (exit 1 (usage summary))
+			(= 0 (count (str (:output options)))) (exit 1 (usage summary))
 			errors (exit 1 (error-msg errors)))
 		;; Execute program with options
 		(let [input (:input options)
