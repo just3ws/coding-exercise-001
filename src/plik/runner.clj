@@ -44,7 +44,7 @@
     ;; Handle help and error conditions
     (cond
       (:help options) (exit 0 (usage summary))
-      (not= (zero? (count arguments))) (exit 1 (usage summary))
+      (not (zero? (count arguments))) (exit 1 (usage summary))
       (zero? (count (str (:input options)))) (exit 1 (usage summary))
       (zero? (count (str (:output options)))) (exit 1 (usage summary))
       errors (exit 1 (error-msg errors)))
