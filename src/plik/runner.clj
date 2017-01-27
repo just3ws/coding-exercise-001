@@ -1,20 +1,19 @@
 (ns plik.runner
   (:require [clojure.tools.cli :refer [parse-opts]]
-            [clojure.pprint :refer :all]
-            [plik.reader :as r]
-            [plik.writer :as w]
-            [plik.sniffer :as sniffer]
+            [plik.reader]
+            [plik.writer]
+            [plik.sniffer]
             [clojure.string :as string])
   (:gen-class))
 
 (def cli-options
   [["-i" "--input INPUT" "Required. Fully-qualified path to input file"
     :parse-fn #(-> % str string/trim)
-    :validate [#(r/file-exists? %) "The input file must exist"]
+    :validate [#(plik.reader/file-exists? %) "The input file must exist"]
     :required true]
    ["-o" "--output OUTPUT" "Required. Fully-qualified path to output directory"
     :parse-fn #(-> % str string/trim)
-    :validate [#(r/directory-exists? %) "The output directory must exist. File will be created or appended."]
+    :validate [#(plik.reader/directory-exists? %) "The output directory must exist. File will be created or appended."]
     :required true]
    ["-h" "--help" "Print this message" :default false]])
 
@@ -50,6 +49,6 @@
       errors (exit 1 (error-msg errors)))
     ;; Execute program with options
     (let [input (:input options)
-          output (r/append-to-base-path (:output options) ["plik-data.json"]) ]
-      (let [data (r/load-data input (sniffer/infer-deliminator input))]
-        (w/write-json-rows output data)))))
+          output (plik.reader/append-to-base-path (:output options) ["plik-data.json"]) ]
+      (let [data (plik.reader/load-data input (plik.sniffer/infer-deliminator input))]
+        (plik.writer/write-json-rows output data)))))
