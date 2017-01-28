@@ -17,6 +17,7 @@
   :profiles {:parser {:main ^{:skip-aot true} plik.parser.runner
                       :aot [plik.parser.runner]}
              :web {:main plik.web.core
+                   :aot :all
                    :production {:env {:production true}}}}
   :aliases {"parser" ["with-profile" "parser" "run"]
             "web" ["with-profile" "web" "run"]}
