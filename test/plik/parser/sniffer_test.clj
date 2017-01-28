@@ -1,11 +1,11 @@
-(ns plik.sniffer-test
+(ns plik.parser.sniffer-test
   (:require [clojure.test :refer :all]
-            [plik.reader]
-            [plik.sniffer :as subject]))
+            [plik.parser.reader]
+            [plik.parser.sniffer :as subject]))
 
-(def pipe-file (plik.reader/open-file "test/pipe.txt"))
-(def comma-file (plik.reader/open-file "test/comma.txt"))
-(def space-file (plik.reader/open-file "test/space.txt"))
+(def pipe-file (plik.parser.reader/open-file "test/pipe.txt"))
+(def comma-file (plik.parser.reader/open-file "test/comma.txt"))
+(def space-file (plik.parser.reader/open-file "test/space.txt"))
 
 (deftest pipe-test
   (is (subject/pipe-delimited? pipe-file))

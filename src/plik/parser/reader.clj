@@ -1,10 +1,10 @@
-(ns plik.reader
+(ns plik.parser.reader
   (:require [clojure.string :as s]
             [clojure.data.csv :as csv]
             [clojure.java.io :as io]
             [semantic-csv.core :as sc]
             [camel-snake-kebab.core :refer :all]
-            [plik.date])
+            [plik.parser.date])
   (:import (java.nio.file Paths)))
 
 (defn open-file
@@ -31,7 +31,7 @@
 
 (defn cast-date-of-birth
   [dob]
-  (when (plik.date/date? dob) (plik.date/read-date dob)))
+  (when (plik.parser.date/date? dob) (plik.parser.date/read-date dob)))
 
 (defn peek-file
   [file]

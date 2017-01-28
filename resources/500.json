@@ -1,0 +1,9 @@
+{
+	"errors": [
+		{
+			"status": "500",
+			"title": "Error",
+			"detail": "Something went wrong. Try again, and if the problem persists please contact support."
+		}
+	]
+}

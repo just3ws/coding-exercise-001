@@ -1,13 +1,13 @@
-(ns plik.runner
+(ns plik.parser.runner
   (:require [clojure.string :as string]
             [clojure.tools.cli :refer [parse-opts]]
-            [plik.core])
+            [plik.parser.core])
   (:gen-class))
 
 (def cli-options
   [["-i" "--input INPUT" "Required. Fully-qualified path to input file"
     :parse-fn #(-> % str string/trim)
-    :validate [#(plik.reader/file-exists? %) "The input file must exist"]
+    :validate [#(plik.parser.reader/file-exists? %) "The input file must exist"]
     :required true]
    ["-h" "--help" "Print this message" :default false]])
 
@@ -15,9 +15,9 @@
   [options-summary]
   (string/join
    \newline
-   ["plik: Read in delimited files, optionally sort, then write as JSON"
+   ["plik.parser. Read in delimited files, optionally sort, then write as JSON"
     ""
-    "Usage: plik [options]"
+    "Usage: plik.parser.[options]"
     ""
     "Options:"
     options-summary]))
@@ -42,4 +42,4 @@
       (zero? (count (str (:input options)))) (exit 1 (usage summary))
       errors (exit 1 (error-msg errors)))
     ;; Execute program with options
-    (plik.core/run (:input options))))
+    (plik.parser.core/run (:input options))))

@@ -1,8 +1,8 @@
-(ns plik.records-test
+(ns plik.parser.records-test
   (:require [clojure.test :refer :all]
-            [plik.date]
-            [plik.records :refer :all])
-  (:import [plik.records Person]
+            [plik.parser.date]
+            [plik.parser.records :refer :all])
+  (:import [plik.parser.records Person]
            (org.joda.time DateTime)))
 
 ;; Directly initialize Person defrecord
@@ -30,7 +30,7 @@
         first-name "Mike"
         last-name "Hall"]
 
-    (def mike (plik.records/make-person {:favorite_color favorite-color
+    (def mike (plik.parser.records/make-person {:favorite_color favorite-color
                                          :date_of_birth  date-of-birth
                                          :gender         gender
                                          :first_name     first-name
@@ -42,4 +42,4 @@
       (is (identical? (:gender mike) gender))
       (is (identical? (:favorite_color mike) favorite-color))
       (is (instance? DateTime (:date_of_birth mike)))
-      (is (plik.date/date? (:date_of_birth mike))))))
+      (is (plik.parser.date/date? (:date_of_birth mike))))))

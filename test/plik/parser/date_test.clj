@@ -1,6 +1,6 @@
-(ns plik.date-test
+(ns plik.parser.date-test
   (:require [clojure.test :refer :all]
-            [plik.date :as subject]))
+            [plik.parser.date :as subject]))
 
 (deftest date-parsing-test
   (is (= "12/19/1975" (subject/write-date (subject/read-date "12/19/1975"))))

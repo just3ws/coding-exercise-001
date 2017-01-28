@@ -1,7 +1,7 @@
-(ns plik.reader-test
+(ns plik.parser.reader-test
   (:require [clojure.test :refer :all]
             [clj-time.core :as t]
-            [plik.reader :as subject])
+            [plik.parser.reader :as subject])
   (:import (org.joda.time DateTime)))
 
 (def pipe-file (subject/open-file "test/pipe.txt"))

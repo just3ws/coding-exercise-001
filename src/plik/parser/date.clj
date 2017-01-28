@@ -1,4 +1,4 @@
-(ns plik.date
+(ns plik.parser.date
   (:require [clojure.string :as s]
             [clj-time.format :as f])
   (:import (org.joda.time DateTime)))
