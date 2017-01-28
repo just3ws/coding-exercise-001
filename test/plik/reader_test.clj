@@ -25,7 +25,6 @@
         (is (false? (nil? datum)))
         (is (= "Lesch" (:last_name datum)))
         (is (= "Emerald" (:first_name datum)))
-        (println (:gender datum))
         (is (= "M" (:gender datum)))
         (is (= "Tan" (:favorite_color datum)))
         (is (instance? DateTime (:date_of_birth datum)))
