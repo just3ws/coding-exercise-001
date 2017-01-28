@@ -2,13 +2,15 @@
   :description "Consume files that can either be pipe, comma, or space delimited."
   :url "http://github.com/just3ws/coding-exercise-001"
   :min-lein-version "2.6.1" ;; Prefer ~> 2.7.1 but Heroku has only 2.6.1
+  :repositories [["local" ~(str (.toURI (java.io.File. "maven_repository")))]]
   :dependencies [[org.clojure/clojure "1.8.0"]
 								 ;; Data App
                  [clj-time "0.13.0"]
+                 [clojure-csv "2.0.1"]
                  [org.clojure/data.csv "0.1.3"]
                  [org.clojure/tools.cli "0.3.5"]
                  [org.clojure/data.json "0.2.6"]
-                 [semantic-csv "0.1.1-just3ws"] ;; Because :transform-header
+                 [self/semantic-csv "0.1.0-just3ws"] ;; Because :transform-header
                  [camel-snake-kebab "0.4.0"]
 								 ;; Web App
                  [compojure "1.5.2"]
