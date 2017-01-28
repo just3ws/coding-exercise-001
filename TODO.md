@@ -1,9 +1,0 @@
-- [x] Run app from command line
-- [x] Pass command line arguments to app
-- [x] Scan for type of file
-- [x] Given a path read a file
-- [x] Echo read file to STDOUT
-- [x] Parse pipe delimited files
-- [x] Parse space delimited files
-- [x] Parse comma delimited files
-- [ ] Take the path from command line
