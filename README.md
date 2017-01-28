@@ -45,3 +45,6 @@ comma, or pipe delimited format.
 - clone repo
 - `cd coding-exercise-01`
 - `./resources/bin/web`
+- `curl http://localhost:5000`
+
+To hit live example also run `curl http://coding-example-001.herokuapp.com`
