@@ -1,7 +1,7 @@
 (defproject plik "0.1.0-SNAPSHOT"
   :description "Consume files that can either be pipe, comma, or space delimited."
   :url "http://github.com/just3ws/coding-exercise-001"
-  :min-lein-version "2.7.1"
+  :min-lein-version "2.6.1" ;; Prefer ~> 2.7.1 but Heroku has only 2.6.1
   :dependencies [[org.clojure/clojure "1.8.0"]
 								 ;; Data App
                  [clj-time "0.13.0"]
