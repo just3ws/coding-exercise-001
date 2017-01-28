@@ -17,10 +17,10 @@
 
     (testing "with valid attributes"
       (is (identical? (:last_name aneta) last-name))
-      (is (identical? (get aneta :first_name) first-name))
-      (is (identical? (get aneta :gender) gender))
-      (is (identical? (get aneta :date_of_birth) date-of-birth))
-      (is (identical? (get aneta :favorite_color) favorite-color)))))
+      (is (identical? (:first_name aneta) first-name))
+      (is (identical? (:gender aneta) gender))
+      (is (identical? (:date_of_birth aneta) date-of-birth))
+      (is (identical? (:favorite_color aneta) favorite-color)))))
 
 ;; Initialize Person record using constructor function
 (testing "Construct a Person record"
@@ -37,9 +37,9 @@
                                          :last_name      last-name}))
 
     (testing "with valid attributes"
-      (is (identical? (get mike :last_name) last-name))
-      (is (identical? (get mike :first_name) first-name))
-      (is (identical? (get mike :gender) gender))
-      (is (identical? (get mike :favorite_color) favorite-color))
-      (is (instance? DateTime (get mike :date_of_birth)))
-      (is (plik.date/date? (get mike :date_of_birth))))))
+      (is (identical? (:last_name mike) last-name))
+      (is (identical? (:first_name mike) first-name))
+      (is (identical? (:gender mike) gender))
+      (is (identical? (:favorite_color mike) favorite-color))
+      (is (instance? DateTime (:date_of_birth mike)))
+      (is (plik.date/date? (:date_of_birth mike))))))

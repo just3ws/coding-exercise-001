@@ -14,21 +14,22 @@
     (testing "verify the first record is as expected"
       (let [datum (first data)]
         (is (false? (nil? datum)))
-        (is (= "Green" (get datum :last_name)))
-        (is (= "Abbey" (get datum :first_name)))
-        (is (= "M" (get datum :gender)))
-        (is (= "Orchid" (get datum :favorite_color)))
-        (is (instance? DateTime (get datum :date_of_birth)))
-        (is (= (t/date-time 2021 10 10) (get datum :date_of_birth)))))
+        (is (= "Green" (:last_name datum)))
+        (is (= "Abbey" (:first_name datum)))
+        (is (= "M" (:gender datum)))
+        (is (= "Orchid" (:favorite_color datum)))
+        (is (instance? DateTime (:date_of_birth datum)))
+        (is (= (t/date-time 2021 10 10) (:date_of_birth datum)))))
     (testing "verify the last record is as expected"
       (let [datum (last data)]
         (is (false? (nil? datum)))
-        (is (= "Lesch" (get datum :last_name)))
-        (is (= "Emerald" (get datum :first_name)))
-        (is (= "M" (get datum :gender)))
-        (is (= "Tan" (get datum :favorite_color)))
-        (is (instance? DateTime (get datum :date_of_birth)))
-        (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))
+        (is (= "Lesch" (:last_name datum)))
+        (is (= "Emerald" (:first_name datum)))
+        (println (:gender datum))
+        (is (= "M" (:gender datum)))
+        (is (= "Tan" (:favorite_color datum)))
+        (is (instance? DateTime (:date_of_birth datum)))
+        (is (= (t/date-time 2021 8 19) (:date_of_birth datum)))))))
 
 (testing "Read in comma file and converting to data"
   (let [data (subject/load-data comma-file \,)]
@@ -36,21 +37,21 @@
     (testing "verify the first record is as expected"
       (let [datum (first data)]
         (is (false? (nil? datum)))
-        (is (= "Green" (get datum :last_name)))
-        (is (= "Abbey" (get datum :first_name)))
-        (is (= "M" (get datum :gender)))
-        (is (= "Orchid" (get datum :favorite_color)))
-        (is (instance? DateTime (get datum :date_of_birth)))
-        (is (= (t/date-time 2021 10 10) (get datum :date_of_birth)))))
+        (is (= "Green" (:last_name datum)))
+        (is (= "Abbey" (:first_name datum)))
+        (is (= "M" (:gender datum)))
+        (is (= "Orchid" (:favorite_color datum)))
+        (is (instance? DateTime (:date_of_birth datum)))
+        (is (= (t/date-time 2021 10 10) (:date_of_birth datum)))))
     (testing "verify the last record is as expected"
       (let [datum (last data)]
         (is (false? (nil? datum)))
-        (is (= "Lesch" (get datum :last_name)))
-        (is (= "Emerald" (get datum :first_name)))
-        (is (= "M" (get datum :gender)))
-        (is (= "Tan" (get datum :favorite_color)))
-        (is (instance? DateTime (get datum :date_of_birth)))
-        (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))
+        (is (= "Lesch" (:last_name datum)))
+        (is (= "Emerald" (:first_name datum)))
+        (is (= "M" (:gender datum)))
+        (is (= "Tan" (:favorite_color datum)))
+        (is (instance? DateTime (:date_of_birth datum)))
+        (is (= (t/date-time 2021 8 19) (:date_of_birth datum)))))))
 
 (testing "Read in space file and converting to data"
   (let [data (subject/load-data space-file \space)]
@@ -58,18 +59,18 @@
     (testing "verify the first record is as expected"
       (let [datum (first data)]
         (is (false? (nil? datum)))
-        (is (= "Green" (get datum :last_name)))
-        (is (= "Abbey" (get datum :first_name)))
-        (is (= "M" (get datum :gender)))
-        (is (= "Orchid" (get datum :favorite_color)))
-        (is (instance? DateTime (get datum :date_of_birth)))
-        (is (= (t/date-time 2021 10 10) (get datum :date_of_birth)))))
+        (is (= "Green" (:last_name datum)))
+        (is (= "Abbey" (:first_name datum)))
+        (is (= "M" (:gender datum)))
+        (is (= "Orchid" (:favorite_color datum)))
+        (is (instance? DateTime (:date_of_birth datum)))
+        (is (= (t/date-time 2021 10 10) (:date_of_birth datum)))))
     (testing "verify the last record is as expected"
       (let [datum (last data)]
         (is (false? (nil? datum)))
-        (is (= "Lesch" (get datum :last_name)))
-        (is (= "Emerald" (get datum :first_name)))
-        (is (= "M" (get datum :gender)))
-        (is (= "Tan" (get datum :favorite_color)))
-        (is (instance? DateTime (get datum :date_of_birth)))
-        (is (= (t/date-time 2021 8 19) (get datum :date_of_birth)))))))
+        (is (= "Lesch" (:last_name datum)))
+        (is (= "Emerald" (:first_name datum)))
+        (is (= "M" (:gender datum)))
+        (is (= "Tan" (:favorite_color datum)))
+        (is (instance? DateTime (:date_of_birth datum)))
+        (is (= (t/date-time 2021 8 19) (:date_of_birth datum)))))))
