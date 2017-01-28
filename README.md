@@ -27,7 +27,7 @@ Please checkin your Idea project files or bring your own laptop for this part.
 [![Code Climate](https://codeclimate.com/github/just3ws/coding-exercise-001/badges/gpa.svg)](https://codeclimate.com/github/just3ws/coding-exercise-001)
 [![Build Status](https://travis-ci.org/just3ws/coding-exercise-001.svg?branch=master)](https://travis-ci.org/just3ws/coding-exercise-001)
 
-### Parser
+### plik.parser
 
 A Clojure library designed to parse delimited files that may be using space,
 comma, or pipe delimited format.
@@ -35,4 +35,7 @@ comma, or pipe delimited format.
 ## Usage
 
 - clone repo
-- `./resources/bin/runner`
+- `cd coding-exercise-01`
+- `./resources/bin/parser`
+
+### plik.web
