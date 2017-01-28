@@ -5,5 +5,6 @@
 
 (defn run
   [input]
-  (let [data (plik.reader/load-data input (plik.sniffer/infer-deliminator input))]
-    (plik.writer/write-json-rows data)))
+  (plik.writer/write-json-rows
+   (plik.reader/load-data input
+                          (plik.sniffer/infer-deliminator input))))

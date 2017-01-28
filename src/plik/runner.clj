@@ -14,13 +14,13 @@
 (defn usage
   [options-summary]
   (string/join
-    \newline
-    ["plik: Read in delimited files, optionally sort, then write as JSON"
-     ""
-     "Usage: plik [options]"
-     ""
-     "Options:"
-     options-summary]))
+   \newline
+   ["plik: Read in delimited files, optionally sort, then write as JSON"
+    ""
+    "Usage: plik [options]"
+    ""
+    "Options:"
+    options-summary]))
 
 (defn error-msg
   [errors]
