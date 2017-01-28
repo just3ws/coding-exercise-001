@@ -1,28 +1,23 @@
 (ns plik.web.core
-  (:require [compojure.core :refer [defroutes GET PUT POST DELETE ANY]]
-            [compojure.handler :refer [site]]
+  (:require [clojure.java.io :as io]
+            [compojure.core :refer [defroutes GET]]
             [compojure.route :as route]
-            [clojure.java.io :as io]
-            [ring.adapter.jetty :as jetty]
+            [ring.adapter.jetty :as ring]
+            [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [environ.core :refer [env]])
   (:gen-class))
 
-(defn splash []
-  {:status 200
-   :headers {"Content-Type" "text/plain"}
-   :body "Hello, world!"})
+(defroutes routes
+  (GET "/" [] "Hello, world!")
+  (route/not-found (slurp (io/resource "public/404.json"))))
 
-(defroutes app
-  (GET "/" []
-    (splash))
-  (ANY "*" []
-    (route/not-found (slurp (io/resource "404.json")))))
+(def application (wrap-defaults routes site-defaults))
 
-(defn -main [& [port]]
+(defn start
+  [port]
+  (ring/run-jetty application {:port port :join? false}))
+
+(defn -main
+  [& [port]]
   (let [port (Integer. (or port (env :port) 5000))]
-    (jetty/run-jetty (site #'app) {:port port :join? false})))
-
-;; For interactive development:
-;; (.stop server)
-;; (def server (-main))
-
+    (start port)))
