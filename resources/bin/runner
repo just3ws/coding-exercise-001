@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -ex
 
 printf '\33c\e[3J'
 
-echo Begin
+lein do deps, clean, compile, test :all
 
 cwd=$(pwd)
 
@@ -10,21 +10,14 @@ output_directory="$HOME/tmp/plik"
 rm -rf "$output_directory"
 mkdir -p ~/tmp/plik
 
-echo
-echo "!!! Output will be written to $output_directory"
-echo
-
 comma_file="$cwd/resources/test/many-people.csv"
-echo "Reading in comma delimited data from $comma_file"
 lein trampoline run --input "$comma_file"  --output "$output_directory"
 
 space_file="$cwd/resources/test/many-people.txt"
-echo "Reading in space delimited data from $space_file"
 lein trampoline run --input "$space_file"  --output "$output_directory"
 
 pipe_file="$cwd/resources/test/many-people.psv"
-echo "Reading in pipe delimited data from $pipe_file"
 lein trampoline run --input "$pipe_file"  --output "$output_directory"
 
+find "$output_directory" -name "*.json" -type f -exec wc -l {} \;
 open "$output_directory"
-echo Done
