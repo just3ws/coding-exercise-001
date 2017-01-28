@@ -1,6 +1,5 @@
 {
-  "name": "Coding Exercise #1: Clojure REST API",
-  "description": "Step 2: Build a REST API to access your system",
+  "name": "coding-exercise-001",
   "image": "heroku/clojure",
   "addons": []
 }
