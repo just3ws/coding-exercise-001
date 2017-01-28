@@ -1,23 +1,10 @@
-#!/usr/bin/env bash -ex
+#!/usr/bin/env bash
+set -ex
 
 printf '\33c\e[3J'
 
 lein do deps, clean, compile, test :all
 
-cwd=$(pwd)
-
-output_directory="$HOME/tmp/plik"
-rm -rf "$output_directory"
-mkdir -p ~/tmp/plik
-
-comma_file="$cwd/resources/test/many-people.csv"
-lein trampoline run --input "$comma_file"  --output "$output_directory"
-
-space_file="$cwd/resources/test/many-people.txt"
-lein trampoline run --input "$space_file"  --output "$output_directory"
-
-pipe_file="$cwd/resources/test/many-people.psv"
-lein trampoline run --input "$pipe_file"  --output "$output_directory"
-
-find "$output_directory" -name "*.json" -type f -exec wc -l {} \;
-open "$output_directory"
+lein trampoline run --input "$(pwd)/resources/test/many-people.csv"
+lein trampoline run --input "$(pwd)/resources/test/many-people.txt"
+lein trampoline run --input "$(pwd)/resources/test/many-people.psv"
