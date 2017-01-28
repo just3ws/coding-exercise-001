@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -ex
+
+printf '\33c\e[3J'
+
+lein do deps, clean, compile, test :all
+
+lein web

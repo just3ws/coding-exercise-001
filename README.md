@@ -32,10 +32,16 @@ Please checkin your Idea project files or bring your own laptop for this part.
 A Clojure library designed to parse delimited files that may be using space,
 comma, or pipe delimited format.
 
-## Usage
+#### Usage
 
 - clone repo
 - `cd coding-exercise-01`
 - `./resources/bin/parser`
 
 ### plik.web
+
+#### Usage
+
+- clone repo
+- `cd coding-exercise-01`
+- `./resources/bin/web`
