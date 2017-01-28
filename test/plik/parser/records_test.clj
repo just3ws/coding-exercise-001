@@ -31,10 +31,10 @@
         last-name "Hall"]
 
     (def mike (plik.parser.records/make-person {:favorite_color favorite-color
-                                         :date_of_birth  date-of-birth
-                                         :gender         gender
-                                         :first_name     first-name
-                                         :last_name      last-name}))
+                                                :date_of_birth  date-of-birth
+                                                :gender         gender
+                                                :first_name     first-name
+                                                :last_name      last-name}))
 
     (testing "with valid attributes"
       (is (identical? (:last_name mike) last-name))

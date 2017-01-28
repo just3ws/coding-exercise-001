@@ -7,4 +7,4 @@
   [input]
   (plik.parser.writer/write-json-rows
    (plik.parser.reader/load-data input
-                          (plik.parser.sniffer/infer-deliminator input))))
+                                 (plik.parser.sniffer/infer-deliminator input))))
