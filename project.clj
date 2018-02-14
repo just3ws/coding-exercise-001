@@ -2,16 +2,14 @@
   :description "Consume files that can either be pipe, comma, or space delimited."
   :url "http://github.com/just3ws/coding-exercise-001"
   :min-lein-version "2.8.1" ;; Prefer ~> 2.8.1 but Heroku has only 2.7.1
-  :repositories [["local" ~(str (.toURI (java.io.File. "maven_repository")))]]
-  :dependencies [[org.clojure/clojure "1.10.0-alpha4"]
+  :dependencies [[org.clojure/clojure "1.9.0"]
                  ;; Data App
                  [clj-time "0.14.2"]
                  [clojure-csv "2.0.2"]
                  [org.clojure/data.csv "0.1.4"]
                  [org.clojure/tools.cli "0.3.5"]
                  [org.clojure/data.json "0.2.6"]
-                 ; [self/semantic-csv "0.1.0-just3ws"] ;; Because :transform-header
-                 [semantic-csv "0.2.1-alpha1"]
+                 [semantic-csv "0.2.0"]
                  [camel-snake-kebab "0.4.0"]
                  ;; Web App
                  [compojure "1.6.0"]
@@ -29,8 +27,8 @@
                    }}
   :aliases {"parser" ["with-profile" "parser" "run"]
             "web" ["with-profile" "web" "run"]}
-  :plugins [[cider/cider-nrepl "0.17.0-SNAPSHOT"] ;; Recommended for use with vim-fireplace
-            [lein-cloverage "1.0.11-SNAPSHOT"] ;; Test coverage analysis
+  :plugins [[cider/cider-nrepl "0.16.0"] ;; Recommended for use with vim-fireplace
+            [lein-cloverage "1.0.10"] ;; Test coverage analysis
             [com.jakemccrary/lein-test-refresh "0.22.0"] ;; Run tests on change
             [lein-kibit "0.1.6"] ;; Clojure static analysis
             [lein-ancient "0.6.15"] ;; Check for out-of-date dependencies
