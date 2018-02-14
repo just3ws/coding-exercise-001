@@ -6,7 +6,7 @@ script:
   - "lein eastwood"
   - "lein do clean, test, clean, compile :all"
   - "lein cloverage"
-jdk: [oraclejdk8]
+jdk: [oraclejdk9]
 addons:
   debug: true
   artifacts: true
