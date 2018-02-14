@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-set -ex
+#!/usr/bin/env zsh 
 
 printf '\33c\e[3J'
 
