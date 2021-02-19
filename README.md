@@ -47,4 +47,4 @@ comma, or pipe delimited format.
 - `./resources/bin/web`
 - `curl http://localhost:5000`
 
-To hit live example also run `curl http://coding-example-001.herokuapp.com`
+To hit live example also run `curl http://coding-example-001.herokuapp.com`.
